@@ -1,8 +1,8 @@
 import os
 import math
-
+print("===========================================================================================================")
 print(os.getcwd())
-print("==============================|QbCore-Item-Printer|============================== \n A powerful tool designed to assist in the creation of items. Prints 3 different \n files to be placed in their respective .lua files. \n see below: \n \n --Items goes to > [qb]/qb-core/shared \n --Consumables goes to > [qb]/qb-smallresources/server \n --Config goes to > [qb]/qb-smallresources \n \nDo not replace the files!! You must edit the notepad and find their appropriate places. Then copy and paste.\n \n \nTool created by Aercascade#4928")
+print("==============================|QbCore-Item-Printer|==============================|Version 0.5|=============\n A powerful tool designed to assist in the creation of items. Prints 3 different \n files to be placed in their respective .lua files. \n see below: \n \n --Items goes to > [qb]/qb-core/shared \n --Consumables goes to > [qb]/qb-smallresources/server \n --Config goes to > [qb]/qb-smallresources \n \nDo not replace the files!! You must edit the configs and find their appropriate places. Then copy and paste.\n \n \nTool created by Aercascade#4928")
 
 while True:
     name = input("enter anything or specify exit to close application ")
@@ -22,16 +22,16 @@ while True:
     file4 = 'gsheets'
     file4_path = os.path.join(os.getcwd(), file4)
 
-    name = input("Enter the name of the item (must be lower case and without spaces): ")
-    label = input("Enter the label of the item (used for the ingame name): ")
-    weight = int(input("Enter the weight of the item (Base: 100): "))
-    type = input("Enter the type of the item (Base: type): ")
-    image = input("Enter the name of the image file (without .png, file type must be png): ")
-    unique = input("Is the item unique? Enter true or false - MUST BE LOWERCASE: ")
-    useable = input("Is the item useable? Enter true or false - MUST BE LOWERCASE: ")
-    shouldClose = input("Should the item close? Enter true or false - MUST BE LOWERCASE: ")
-    combinable = input("Enter the name of the combinable item: if none input as nil ")
-    description = input("Enter a description of the item:  ")
+    name = input("[Name] (must be lower case and without spaces): ")
+    label = input("[Label] (used for the ingame name): ")
+    weight = int(input("[Weight] (Base: 100): "))
+    type = input("[Type] (Base: item): ")
+    image = input("[Image] (without .png, file type must be png): ")
+    unique = input("[Unique] true/false MUST BE LOWERCASE: ")
+    useable = input("[Useable] Enter true or false - MUST BE LOWERCASE: ")
+    shouldClose = input("[ShouldClose] Enter true or false - MUST BE LOWERCASE: ")
+    combinable = input("[Combinable] item: if none input as nil ")
+    description = input("[Description]  ")
 
     item = {
         'name': name,
@@ -71,16 +71,17 @@ while True:
         break
 
     if useable == "true":
-        mathvaluemin = input("Enter a minimum consumable value (water/sandwich is 35):  ")
-        mathvaluemax = input("Enter a maximum consumable value (water/sandwich is 54):  ")
-        consume = input("Define how it is consumed, Eat, Drink or Custom  ")
+        mathvaluemin = input("Min-consume (water/sandwich is 35):  ")
+        mathvaluemax = input("Max-consume (water/sandwich is 54):  ")
+        consume = input("How-consumed, Eat, Drink or Custom  ")
         item = {
             'mathvaluemin': mathvaluemin,
             'mathvaluemax': mathvaluemax,   
         }
         output = '    ["' + name + '"] = math.random(' + str(mathvaluemin) + ', ' + str(mathvaluemax) + '),\n'
         with open('config.txt', 'a') as f:
-            f.write(output)                
+            f.write(output)
+            print("\n Data written to Config.txt \n \n")            
 
         output = 'QBCore.Functions.CreateUseableItem("' + name + '", function(source, item)\n'
         output += '\tlocal Player = QBCore.Functions.GetPlayer(source)\n'
@@ -91,26 +92,29 @@ while True:
 
         with open('consumables.txt', 'a') as f:
             f.write(output)
+            print("\n Data written to Consumables.txt \n \n")
             
-        output = '' + name + '	'
-        output += '' + label + '	'
-        output += '' + str(weight) + '	'
-        output += '' + type + '	'
-        output += '' + image + ".png	"
-        if useable == "true":
-            output += '' + str(mathvaluemin) + ',' + str(mathvaluemax) + ' '
-            if consume == "Eat":
-                output += 'Food '
-            elif consume == 'Drink':
-                output += 'Drink '
-            elif consume == 'Custom':
-                output += 'Custom '
-        else:
-            output += ''  ''
-            output += ''  ''
-        output += '' + description + '\n'
+    output = '' + name + '	'
+    output += '' + label + '	'
+    output += '' + str(weight) + '	'
+    output += '' + type + '	'
+    output += '' + image + ".png	"
+    if useable == "true":
+        output += '' + str(mathvaluemin) + ',' + str(mathvaluemax) + '	'
+        if consume == "Eat":
+            output += 'Food	'
+        elif consume == 'Drink':
+            output += ' Drink	'
+        elif consume == 'Custom':
+            output += 'Custom	'
+    elif useable == "false":
+         output += '    	'
+         output += '    	'
+    output += '' + description + '	\n'
         
-        with open('gsheets.txt', 'a') as f:
-            f.write(output)        
-        
-            print("Process complete, Begin next item?\n \n")
+    with open('gsheets.txt', 'a') as f:
+        f.write(output)        
+        print("\n Data written to Gsheets.txt \n")
+        print("==============================|Item Printed|==============================|Check-Software-Directory|======= \n \n")       
+        print("Process complete, Begin next item?\n")
+
