@@ -3,43 +3,13 @@ A simple Python script to empower users in making items more efficiently. Decide
 Hopefully this helps some of you create projects a little easier.
 See some of the example outputs in the .txt files provided.
 
-See below example from qbcore website:
-
-QBShared.Items = {
-    ['id_card'] = {
-        ['name'] = 'id_card', -- Actual item name for spawning/giving/removing
-        ['label'] = 'ID Card', -- Label of item that is shown in inventory slot
-        ['weight'] = 0, -- How much the items weighs
-        ['type'] = 'item', -- What type the item is (ex: item, weapon)
-        ['image'] = 'id_card.png', -- This item image that is found in qb-inventory/html/images (must be same name as ['name'] from above)
-        ['unique'] = true, -- Is the item unique (true|false) - Cannot be stacked & accepts item info to be assigned
-        ['useable'] = true, -- Is the item useable (true|false) - Must still be registered as useable
-        ['shouldClose'] = false, -- Should the item close the inventory on use (true|false)
-        ['combinable'] = nil, -- Is the item able to be combined with another? (nil|table)
-        ['description'] = 'A card containing all your information to identify yourself' -- Description of time in inventory
-    }
-}
-
--- Example of an item that is combinable and not nil
-
-['combinable'] = {
-    accept = {'snspistol_part_1'}, -- The other item that can be it can be combined with
-    reward = 'snspistol_stage_1', -- The item that is rewarded upon successful combine
-    anim = { -- Set the animation, progressbar text and length of time it takes to combine
-        ['dict'] = 'anim@amb@business@weed@weed_inspecting_high_dry@', -- The animation dictionary
-        ['lib'] = 'weed_inspecting_high_base_inspector', -- The animation library
-        ['text'] = 'Atttaching attachments', -- Text that will be displayed in the progress bar
-        ['timeOut'] = 15000,} -- How long the animation should take to complete
-    }
-}
-
 
 This python script will show you a console to take you through each entry.
 ['name'] = what is used for spawning. It should not have a space in the name use '_' or '-' instead.
 ['label'] = what is used ingame, so what the player will see.
 ['weight'] = how much the items weighs.
 ['type'] = type of item it is, item, weapon etc...
-['image'] = is the image you are using. Image should be located in the folder or it will not work! > This item image that is found in qb-inventory/html/images.
+['image'] = is the image you are using. Image should be located in the folder or it will not work! > This item image that is found in qb-inventory/html/images. Also make sure the name is the same as 'name'!
 Don't write .png. The software will include the .png for you.
 ['unique'] = If the item can't be stacked and accepts item info to be assigned.
 ['useable'] =  if the item is useable. Consumeable for example.
