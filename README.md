@@ -4,6 +4,7 @@ Hopefully this helps some of you create projects a little easier.
 See some of the example outputs in the .txt files provided.
 
 See below example from qbcore website:
+
 QBShared.Items = {
     ['id_card'] = {
         ['name'] = 'id_card', -- Actual item name for spawning/giving/removing
