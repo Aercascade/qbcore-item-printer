@@ -1,0 +1,1 @@
+    ['example_file']                           = {['name'] = 'example_file',    ['label'] = 'Example Item', 			  	  	    ['weight'] = 100, 			    ['type'] = 'item', 		    ['image'] = 'example_file.png', 		    ['unique'] = false, 		    ['useable'] = true,        ['shouldClose'] = true, 		    ['combinable'] = nil, 		    ['description'] = 'It's just an example item' 		},

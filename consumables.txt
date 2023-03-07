@@ -1,0 +1,6 @@
+QBCore.Functions.CreateUseableItem("example_file", function(source, item)
+	local Player = QBCore.Functions.GetPlayer(source)
+	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
+		TriggerClientEvent("consumables:client:Eat", source, item.name)
+	end
+end)

@@ -1,0 +1,1 @@
+example_file	Example Item	100	item	example_file.png	35,54	Food	It's just an example item	
