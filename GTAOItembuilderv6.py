@@ -47,17 +47,17 @@ while True:
 }
 
 
-    output = "    ['" + name + "']                           = {"
-    output += "['name'] = '" + name + "',    "
-    output += "['label'] = '" + label + "', 			  	  	"
-    output += "    ['weight'] = " + str(weight) + ", 			"
-    output += "    ['type'] = '" + type + "', 		"
-    output += "    ['image'] = '" + image + ".png', 		"
-    output += "    ['unique'] = " + str(unique) + ", 		"
-    output += "    ['useable'] = " + str(useable) + ",    "
-    output += "    ['shouldClose'] = " + str(shouldClose) + ", 		"
-    output += "    ['combinable'] = " + str(combinable) + ", 		" 		
-    output += "    ['description'] = '" + description + "' 		"
+    output = "        ['" + name + "']            = {"
+    output += "['name'] = '" + name + "',            "
+    output += "['label'] = '" + label + "',            "
+    output += "    ['weight'] = " + str(weight) + ",            "
+    output += "    ['type'] = '" + type + "',            "
+    output += "    ['image'] = '" + image + ".png',            "
+    output += "    ['unique'] = " + str(unique) + ",            "
+    output += "    ['useable'] = " + str(useable) + ",            "
+    output += "    ['shouldClose'] = " + str(shouldClose) + ",            "
+    output += "    ['combinable'] = " + str(combinable) + ",            " 		
+    output += "    ['description'] = '" + description + "'"
     output += "},\n"
 
     save = input("Would you like to save? specify y/n ")
