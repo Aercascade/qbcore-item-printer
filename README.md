@@ -1,3 +1,5 @@
+!!Not a QBCore Script - Please do not use as a QBCore script. This is a separate python script for use as a server developer when creating items for your server.!!
+
 QBcore-Item-Printer does exactly what is says.
 A simple Python script to empower users in making items more efficiently. Decided on because creating 3 unique .txt files everytime would be incredibly time consuming.
 Hopefully this helps some of you create projects a little easier.
